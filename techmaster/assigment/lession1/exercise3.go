@@ -13,9 +13,9 @@ import (
 //
 // for i = 2, 3, 4,..., √n:
 //   if A[i] is false:
-// 	   for j = i^2, i^2+i, i^2+2i,..., n:
+//     for j = i^2, i^2+i, i^2+2i,..., n:
 //       A[j]:= true
-
+//
 // Lúc này, tất cả i ví dụ như của A[i] nếu false đều là số nguyên tố.
 
 func main() {
