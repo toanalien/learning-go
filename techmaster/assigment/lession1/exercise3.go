@@ -25,7 +25,6 @@ func main() {
 
 	// Tạo slice với giá trị là false
 	bools := make([]bool, n)
-	// implies up to the sqrt of limit
 	for k := 2; k*k <= n; k++ {
 		if bools[k] == false {
 			for ix := k * k; ix < n; ix += k {
