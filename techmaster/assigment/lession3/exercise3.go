@@ -11,8 +11,10 @@ import (
 
 // mình tìm được một số ví dụ trên mạng là sẽ in trực tiếp cây thư mục duyệt đến thư mục đó
 // mình làm theo cách khác là sẽ build ra 1 cây bằng linkedList sau đó query và in ra
-// trong đó mỗi thực thể là 1 node
+// khi đó có thể build được tree & get size bất kỳ thư mục nào trong linkedList.
+// Mỗi thực thể là 1 node
 // nếu node đó là folder thì sẽ có children là 1 linkedList
+//
 // tham khảo cách dựng linkedList ở đây: https://github.com/DavidMoranchel/go-data-structures/blob/master/linked_list.go
 
 type node struct {
@@ -45,6 +47,17 @@ func (l linkedList) Count() (countDir, countFile int) {
 		} else {
 			countFile += 1
 		}
+		l.head = l.head.next
+	}
+	return
+}
+
+func (l linkedList) getSize() (size int64) {
+	for l.head != nil {
+		if l.head.children != nil {
+			size += l.head.children.getSize()
+		}
+		size += l.head.size
 		l.head = l.head.next
 	}
 	return
@@ -104,5 +117,6 @@ func main() {
 	getDir(root, path)
 	root.Display(0)
 	dirs, files := root.Count()
-	fmt.Printf("%d directories, %d files", dirs, files)
+	fmt.Printf("Total: %d directories, %d files\n", dirs, files)
+	fmt.Printf("Size: %.2f KB\n", float64(root.getSize())/1024)
 }
