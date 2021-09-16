@@ -120,3 +120,26 @@ func main() {
 	fmt.Printf("Total: %d directories, %d files\n", dirs, files)
 	fmt.Printf("Size: %.2f KB\n", float64(root.getSize())/1024)
 }
+
+// | assigment
+//    | README.md
+//    | lession1
+//       | exercise1.go
+//       | exercise2.go
+//       | exercise3.go
+//    | lession2
+//       | exercise1.go
+//       | exercise2.go
+//       | exercise3.go
+//       | exercise4.go
+//    | lession3
+//       | exercise1
+//          | exercise1.go
+//       | exercise2
+//          | editbox.go
+//          | main.go
+//       | exercise3.go
+//       | go.mod
+//       | go.sum
+// Total: 6 directories, 14 files
+// Size: 118.43 KB
